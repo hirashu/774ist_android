@@ -3,4 +3,20 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string name="title">配信予定</string>
+    <string name="schedule_time">10:00</string>
+    <string name="distributor">宝鐘マリン</string>
+    <string name="broadcast_title">[放送タイトル]内容は未定ペコ\nてすと</string>
+    <string name="broadcast_status">配信中</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="all_774inc">全体</string>
+    <string name="aniMare">あにまーれ</string>
+    <string name="honeyStrap">ハニーストラップ</string>
+    <string name="honeyStrap_ry">ハニスト</string>
+    <string name="sugarLyric">シュガーリリック</string>
+    <string name="sugarLyric_ry">シュガリリ</string>
+    <string name="vtuberApArt">ブイアパ</string>
 </resources>
