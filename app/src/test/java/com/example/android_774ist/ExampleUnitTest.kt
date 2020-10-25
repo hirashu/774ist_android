@@ -1,4 +1,4 @@
-package com.example.a774ist
+package com.example.android_774ist
 
 import org.junit.Test
 

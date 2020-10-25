@@ -1,4 +1,4 @@
-package com.example.a774ist.ui.home
+package com.example.android_774ist.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

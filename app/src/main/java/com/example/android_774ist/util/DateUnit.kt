@@ -1,4 +1,4 @@
-package com.example.a774ist.util
+package com.example.android_774ist.util
 
 import java.text.ParseException
 import java.text.SimpleDateFormat
