@@ -7,7 +7,10 @@ import androidx.lifecycle.ViewModel
 class HomeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "This is home Fragment"  /*todo ここでじっそうする*/
     }
     val text: LiveData<String> = _text
+
+    //todo repositoryから値の取得・更新を行う。
+
 }

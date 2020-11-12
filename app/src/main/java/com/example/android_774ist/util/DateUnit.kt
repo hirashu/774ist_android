@@ -1,5 +1,6 @@
 package com.example.android_774ist.util
 
+import android.annotation.SuppressLint
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -113,6 +114,7 @@ class DateUnit{
         return sdf.format(date)
     }
 
+    @SuppressLint("SimpleDateFormat")
     fun formHmmDate(dateTime: Long?):String{
         dateTime?:return ""
         val date= Date()
