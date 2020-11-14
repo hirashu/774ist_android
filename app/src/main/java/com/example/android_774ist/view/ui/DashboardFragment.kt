@@ -23,7 +23,10 @@ class DashboardFragment : Fragment() {
         dashboardViewModel =
                 ViewModelProviders.of(this).get(DashboardViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
+
+        // textViewのIDを持ってくる
         val textView: TextView = root.findViewById(R.id.text_dashboard)
+        //VMで設定した値を設定する
         dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

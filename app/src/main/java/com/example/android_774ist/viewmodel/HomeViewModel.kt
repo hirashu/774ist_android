@@ -11,6 +11,6 @@ class HomeViewModel : ViewModel() {
     }
     val text: LiveData<String> = _text
 
-    //todo repositoryから値の取得・更新を行う。
+    //todo repositoryから値の取得・更新を行う。リポジトリ作成してからでいいかな
 
 }
