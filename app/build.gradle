@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'kotlin-kapt'
 
+
 android {
     compileSdkVersion 29
 
@@ -57,6 +58,14 @@ dependencies {
     /** Add_dagger_hilt */
     implementation 'com.google.dagger:hilt-android:2.29.1-alpha'
     kapt 'com.google.dagger:hilt-android-compiler:2.29.1-alpha'
+    //viewModelを扱うよう
+    def dagger_hilt_view_model_version = "1.0.0-alpha01"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:${dagger_hilt_view_model_version}"
+    kapt "androidx.hilt:hilt-compiler:${dagger_hilt_view_model_version}"
     /** Add_Gson */
     implementation 'com.google.code.gson:gson:2.8.6'
+    //Retrofit2 and okHttp(Http通信周りのライブラリ)
+    implementation 'com.squareup.retrofit2:retrofit:2.6.3'
+    implementation  'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation  'com.squareup.okhttp3:logging-interceptor:3.14.4'
 }
