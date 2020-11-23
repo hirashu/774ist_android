@@ -3,6 +3,8 @@ package com.example.android_774ist.service
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class Client {
@@ -29,5 +31,19 @@ class Client {
         httpClient.addInterceptor(loggingInterceptor)
 
         return  httpClient
+    }
+
+    //繋ぎこみ
+    fun createService(uri:String): ApiService {
+        var client = httpBuilder.build()
+        var retrofit = Retrofit.Builder()
+            .baseUrl(uri)//基本のurl設定
+            .addConverterFactory(GsonConverterFactory.create())//Gsonの使用
+            .client(client)//カスタマイズしたokhttpのクライアントの設定
+            .build()
+        //Interfaceから実装を取得
+        var API = retrofit.create(ApiService::class.java)
+
+        return API
     }
 }
