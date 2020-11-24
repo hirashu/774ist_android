@@ -3,6 +3,7 @@ package com.example.android_774ist.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.android_774ist.service.repository.scheduleRepository
 
 class HomeViewModel : ViewModel() {
 
@@ -12,5 +13,6 @@ class HomeViewModel : ViewModel() {
     val text: LiveData<String> = _text
 
     //todo repositoryから値の取得・更新を行う。リポジトリ作成してからでいいかな
+    val schedulelist =scheduleRepository().getScheduleData()
 
 }

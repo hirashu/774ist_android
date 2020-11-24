@@ -7,5 +7,5 @@ import retrofit2.http.Query
 
 interface ApiService {
     @GET("schedule")
-    fun getSchedule(): Call<List<ScheduleResult>>
+    fun getSchedule(): Call<List<ScheduleResult.Item>>
 }

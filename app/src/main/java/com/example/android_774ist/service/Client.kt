@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit
 
 class Client {
     //Clientを作成
-    val httpBuilder: OkHttpClient.Builder get() {
+    private val httpBuilder: OkHttpClient.Builder get() {
         //HttpClientのBuilderを作成する
         val httpClient = OkHttpClient.Builder()
         //create http client headerの追加
@@ -35,15 +35,14 @@ class Client {
 
     //繋ぎこみ
     fun createService(uri:String): ApiService {
-        var client = httpBuilder.build()
-        var retrofit = Retrofit.Builder()
+        val client = httpBuilder.build()
+        val retrofit = Retrofit.Builder()
             .baseUrl(uri)//基本のurl設定
             .addConverterFactory(GsonConverterFactory.create())//Gsonの使用
             .client(client)//カスタマイズしたokhttpのクライアントの設定
             .build()
         //Interfaceから実装を取得
-        var API = retrofit.create(ApiService::class.java)
 
-        return API
+        return retrofit.create(ApiService::class.java)
     }
 }
