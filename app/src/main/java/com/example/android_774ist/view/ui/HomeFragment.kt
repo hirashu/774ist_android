@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android_774ist.R
+import com.example.android_774ist.service.repository.scheduleRepository
 import com.example.android_774ist.view.adapter.RecyclerScheduleAdapter
 import com.example.android_774ist.viewmodel.HomeViewModel
 
@@ -32,6 +33,8 @@ class HomeFragment : Fragment() {
         val layout = LinearLayoutManager(this.context)
         //RecyclerViewにレイアウトマネージャーを設定する
         lvSchedule.layoutManager=layout
+
+        //val schedulelist = scheduleRepository().getScheduleData()
         //アダプタプジェクトの作成
         //searchVideoResult[2]= Item()
         //val adapter = RecyclerScheduleAdapter(this.context,searchVideoResult)

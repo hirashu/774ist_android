@@ -7,6 +7,6 @@ class Schedule {
     var description:String?=null
     var thumbnailsImgUrl:String?=null
     var liveBroadcastContent:String?=null
-    var scheduledStartTime :Long? =null
+    var scheduledStartTime :String? =null
     var actualStartTime :String? =null
 }

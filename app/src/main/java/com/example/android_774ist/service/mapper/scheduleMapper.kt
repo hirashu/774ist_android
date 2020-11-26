@@ -5,8 +5,8 @@ import com.example.android_774ist.service.model.ScheduleResult
 
 class scheduleMapper {
 
-    fun mapper(result:List<ScheduleResult.Item>?):List<Schedule>{
-
+    fun mapper(results:ScheduleResult?):List<Schedule>{
+        val result =results?.items
         result ?:return listOf<Schedule>()
         //結果を詰めなおす
         return result.mapNotNull {

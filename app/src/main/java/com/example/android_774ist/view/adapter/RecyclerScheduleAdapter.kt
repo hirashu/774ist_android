@@ -45,13 +45,13 @@ class RecyclerScheduleAdapter(
                 holder.tvScheduleTime.visibility = View.GONE
             } else {
                 holder.tvScheduleTime.visibility = View.VISIBLE
-                holder.tvScheduleTime.text =
-                    DateUnit().formHmmDate(item.liveStreamingDetails?.scheduledStartTime) + " ~"
+                //holder.tvScheduleTime.text =
+                    //DateUnit().formHmmDate(item.liveStreamingDetails?.scheduledStartTime) + " ~"
             }
         } else {
             holder.tvScheduleTime.visibility = View.VISIBLE
-            holder.tvScheduleTime.text =
-                DateUnit().formHmmDate(item.liveStreamingDetails?.scheduledStartTime) + " ~"
+            //holder.tvScheduleTime.text =
+                //DateUnit().formHmmDate(item.liveStreamingDetails?.scheduledStartTime) + " ~"
         }
 
         item.snippet?.let {

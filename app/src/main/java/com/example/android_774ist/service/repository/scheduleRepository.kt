@@ -15,24 +15,26 @@ class scheduleRepository {
     //APIから値を受け取る処理(OK,NGで分岐する)
     private val apiUrl="https://hirashu.net/api_774inc-Schedule/"
 
+    private val client =Client()
+
     fun getScheduleData():List<Schedule>{
         var dataList = listOf<Schedule>()
         //リクエストURIを作成して、データを取得する
-        Client().createService(apiUrl).getSchedule().enqueue(object :
-            Callback<List<ScheduleResult.Item>> {
+        client.createService(apiUrl).getSchedule().enqueue(object :
+            Callback<ScheduleResult> {
 
             //非同期処理
-            override fun onResponse(call: Call<List<ScheduleResult.Item>>, response: Response<List<ScheduleResult.Item>>) {
+            override fun onResponse(call: Call<ScheduleResult>, response: Response<ScheduleResult>) {
                 Log.d("TAGres","onResponse")
 
-                //ステータスコードが200：OKなので、ここではちゃんと通信できたよ
+                //ステータスコードが200：OK.データも取得済み
                 if (response.isSuccessful) {
                      dataList=scheduleMapper().mapper(response.body())
                 } else {
                     //もしダメだった時の処理
                 }
             }
-            override fun onFailure(call: Call<List<ScheduleResult.Item>>, t: Throwable) {
+            override fun onFailure(call: Call<ScheduleResult>, t: Throwable) {
                 Log.d("TAGres","onFailure")
             }
         })

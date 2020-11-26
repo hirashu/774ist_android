@@ -33,7 +33,7 @@ data class ScheduleResult(
 
     /**動画の配信時間のクラス*/
     class LiveStreamingDetail{
-        val scheduledStartTime :Long? =null
+        val scheduledStartTime :String? =null
         val actualStartTime :String? =null
     }
 }
