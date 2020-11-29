@@ -37,8 +37,7 @@
             android:id="@+id/ivImg"
             android:layout_width="160dp"
             android:layout_height="90dp"
-            android:layout_margin="5dp"
-            tools:background="@drawable/hqdefault_live" />
+            android:layout_margin="5dp"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -55,7 +54,6 @@
                     android:layout_width="30dp"
                     android:layout_height="match_parent"
                     android:visibility="gone"
-                    tools:background="@drawable/ic_test_kazami_kuku"
                     tools:visibility="gone" />
 
                 <TextView

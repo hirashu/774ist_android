@@ -11,7 +11,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 
-class scheduleRepository {
+class ScheduleRepository {
     //APIから値を受け取る処理(OK,NGで分岐する)
     private val apiUrl="https://hirashu.net/api_774inc-Schedule/"
 
@@ -39,6 +39,12 @@ class scheduleRepository {
             }
         })
         return dataList
+    }
+
+    companion object Factory{
+        val instance:ScheduleRepository
+        //todo このアノテーションの意味を確認する
+        @Synchronized get() {return ScheduleRepository()}
     }
 
 }

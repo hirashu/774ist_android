@@ -9,6 +9,7 @@ class scheduleMapper {
         val result =results?.items
         result ?:return listOf<Schedule>()
         //結果を詰めなおす
+        //todo 配信時間順にソートしてもいいかも
         return result.mapNotNull {
             val snippet=it.snippet?:return@mapNotNull null
             Schedule().apply {

@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android_774ist.R
-import com.example.android_774ist.service.repository.scheduleRepository
+import com.example.android_774ist.service.repository.ScheduleRepository
 import com.example.android_774ist.view.adapter.RecyclerScheduleAdapter
 import com.example.android_774ist.viewmodel.HomeViewModel
 
@@ -42,6 +42,7 @@ class HomeFragment : Fragment() {
         //lvSchedule.adapter=adapter
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
         })
+        
         return root
     }
 
@@ -50,4 +51,7 @@ class HomeFragment : Fragment() {
         //todo ViewModelの設定を行うまたデータ取得を行う
         val viewModel :HomeViewModel = HomeViewModel(); //todo 修正
     }
+
+    private fun obtainViewModel() =
+        ViewModelProviders.of(this).get(homeViewModel::class.java)
 }
