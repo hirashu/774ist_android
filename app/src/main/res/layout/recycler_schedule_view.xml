@@ -48,7 +48,7 @@
             android:layout_width="160dp"
             android:layout_height="90dp"
             android:layout_margin="5dp"
-            app:profileImage="@{scheduleInfo.thumbnailsImgUrl}"/>
+            app:profileImage="@{scheduleInfo.thumbnailsImgUrl}"/><!--ここの参照でエラーが発生するので修正が必要-->
 
         <LinearLayout
             android:layout_width="wrap_content"
