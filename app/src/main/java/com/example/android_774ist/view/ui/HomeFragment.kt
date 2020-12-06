@@ -11,12 +11,13 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android_774ist.R
-import com.example.android_774ist.service.repository.ScheduleRepository
+import com.example.android_774ist.databinding.FragmentHomeBinding
 import com.example.android_774ist.view.adapter.RecyclerScheduleAdapter
 import com.example.android_774ist.viewmodel.HomeViewModel
 
 class HomeFragment : Fragment() {
 
+    private lateinit var binding: FragmentHomeBinding
     private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
@@ -24,6 +25,8 @@ class HomeFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentHomeBinding.inflate(inflater,container,false)
+
         //todo アダプターの設定が優先
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel::class.java)
@@ -33,6 +36,7 @@ class HomeFragment : Fragment() {
         val layout = LinearLayoutManager(this.context)
         //RecyclerViewにレイアウトマネージャーを設定する
         lvSchedule.layoutManager=layout
+
 
         //val schedulelist = scheduleRepository().getScheduleData()
         //アダプタプジェクトの作成

@@ -3,7 +3,7 @@ package com.example.android_774ist.service.repository
 import android.util.Log
 import com.example.android_774ist.service.ApiService
 import com.example.android_774ist.service.Client
-import com.example.android_774ist.service.mapper.scheduleMapper
+import com.example.android_774ist.service.mapper.ScheduleMapper
 import com.example.android_774ist.service.model.Schedule
 import com.example.android_774ist.service.model.ScheduleResult
 import retrofit2.Call
@@ -29,9 +29,9 @@ class ScheduleRepository {
 
                 //ステータスコードが200：OK.データも取得済み
                 if (response.isSuccessful) {
-                     dataList=scheduleMapper().mapper(response.body())
+                     dataList= ScheduleMapper().mapper(response.body())
                 } else {
-                    //もしダメだった時の処理
+                    //ステータスコードが200以外の処理
                 }
             }
             override fun onFailure(call: Call<ScheduleResult>, t: Throwable) {
