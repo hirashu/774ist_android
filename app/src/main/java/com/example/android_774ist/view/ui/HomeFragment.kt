@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android_774ist.R
 import com.example.android_774ist.databinding.FragmentHomeBinding
+import com.example.android_774ist.service.model.Schedule
+import com.example.android_774ist.service.repository.ScheduleRepository
 import com.example.android_774ist.view.adapter.RecyclerScheduleAdapter
 import com.example.android_774ist.viewmodel.HomeViewModel
 
@@ -26,28 +28,31 @@ class HomeFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater,container,false)
+        //binding.lvSchedule.adapter
 
-        //todo アダプターの設定が優先
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel::class.java)
+        ///
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         val lvSchedule =root.findViewById<RecyclerView>(R.id.lvSchedule)
+        //
         //LinearLayoutManagerオブジェクトの作成
         val layout = LinearLayoutManager(this.context)
         //RecyclerViewにレイアウトマネージャーを設定する
         lvSchedule.layoutManager=layout
 
 
-        //val schedulelist = scheduleRepository().getScheduleData()
+        //val schedulelist = ScheduleRepository().getScheduleData()
+        //todo アダプターの設定が優先
         //アダプタプジェクトの作成
         //searchVideoResult[2]= Item()
-        //val adapter = RecyclerScheduleAdapter(this.context,searchVideoResult)
+        val adapter = RecyclerScheduleAdapter(this.context,homeViewModel.scheduleListLiveData as List<Schedule>)
         //テスト
         //lvSchedule.adapter=adapter
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
         })
         
-        return root
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

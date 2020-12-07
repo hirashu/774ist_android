@@ -1,8 +1,12 @@
 package com.example.android_774ist.viewmodel
 
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.android_774ist.service.model.Schedule
 import com.example.android_774ist.service.repository.ScheduleRepository
 
@@ -23,4 +27,15 @@ class HomeViewModel : ViewModel() {
         scheduleListLiveData.postValue(scheduleRepository.getScheduleData())
     }
 
+    companion object{
+        @JvmStatic
+        @BindingAdapter("profileImage")
+        fun loadImage(view: ImageView, imageUrl: String?) {
+            if (imageUrl != null) {
+                Glide.with(view.context)
+                    .load(imageUrl).apply(RequestOptions().circleCrop())
+                    .into(view)
+            }
+        }
+    }
 }

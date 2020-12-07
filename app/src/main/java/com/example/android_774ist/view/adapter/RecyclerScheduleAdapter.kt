@@ -21,7 +21,7 @@ import com.example.android_774ist.util.DateUnit
 
 class RecyclerScheduleAdapter(
     private val context: Context?,
-    private val items: List<ScheduleResult.Item>
+    private val items: List<Schedule>
 ) : RecyclerView.Adapter<RecyclerScheduleAdapter.RecyclerScheduleViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerScheduleViewHolder {
         //インフレータを設定
@@ -41,7 +41,7 @@ class RecyclerScheduleAdapter(
         val pos=holder.adapterPosition
         //TODO前の項目と同じ時間なら
         if (position != 0) {
-            if (item.liveStreamingDetails?.scheduledStartTime == items[position - 1].liveStreamingDetails?.scheduledStartTime) {
+            if (item.scheduledStartTime == items[position - 1].scheduledStartTime) {
                 holder.tvScheduleTime.visibility = View.GONE
             } else {
                 holder.tvScheduleTime.visibility = View.VISIBLE
@@ -54,13 +54,13 @@ class RecyclerScheduleAdapter(
                 //DateUnit().formHmmDate(item.liveStreamingDetails?.scheduledStartTime) + " ~"
         }
 
-        item.snippet?.let {
+        item.let {
             val distributor = memberName(it.channelId)
-            val imgStr = it.thumbnails?.medium?.url
+            val imgStr = it.thumbnailsImgUrl
             val broadcastStatus = "配信中（非表示）$videoId"
             val broadcastTitle = it.title
 
-            // TODO Viewholderに値を設定する
+            // TODO databindingで大幅に変更になる
             holder.tvDistributor.text = distributor
             holder.tvBroadcastStatus.text = broadcastStatus
             holder.tvBroadcastTitle.text = broadcastTitle
