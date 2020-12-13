@@ -1,6 +1,8 @@
 package com.example.android_774ist.service.repository
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.android_774ist.service.ApiService
 import com.example.android_774ist.service.Client
 import com.example.android_774ist.service.mapper.ScheduleMapper
@@ -17,8 +19,8 @@ class ScheduleRepository {
 
     private val client =Client()
 
-    fun getScheduleData():List<Schedule>{
-        var dataList = listOf<Schedule>()
+    fun getScheduleData(): LiveData<List<Schedule>> {
+        val dataList: MutableLiveData<List<Schedule>> = MutableLiveData();
         //リクエストURIを作成して、データを取得する
         client.createService(apiUrl).getSchedule().enqueue(object :
             Callback<ScheduleResult> {
@@ -29,7 +31,8 @@ class ScheduleRepository {
 
                 //ステータスコードが200：OK.データも取得済み
                 if (response.isSuccessful) {
-                     dataList= ScheduleMapper().mapper(response.body())
+                    //dataListのリターン後に以下が行われる
+                     dataList.value= ScheduleMapper().mapper(response.body())
                 } else {
                     //ステータスコードが200以外の処理
                 }
@@ -41,10 +44,12 @@ class ScheduleRepository {
         return dataList
     }
 
+    /** todo いったん除外
     companion object Factory{
         val instance:ScheduleRepository
         //todo このアノテーションの意味を確認する
         @Synchronized get() {return ScheduleRepository()}
     }
+    */
 
 }

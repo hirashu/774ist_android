@@ -1,21 +1,25 @@
 package com.example.android_774ist.viewmodel
 
+import android.app.Application
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.android_774ist.service.model.Schedule
 import com.example.android_774ist.service.repository.ScheduleRepository
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel @ViewModelInject constructor(application: Application) : AndroidViewModel(application) {
 
-    private val scheduleRepository=ScheduleRepository.instance
+    //private val scheduleRepository=ScheduleRepository.instance
 
     //監視対象のLiveData
-    var scheduleListLiveData: MutableLiveData<List<Schedule>> = MutableLiveData()
+    private var mScheduleListLiveData: MutableLiveData<List<Schedule>> = MutableLiveData()
+    val scheduleListLiveData: LiveData<List<Schedule>>
+        get()=mScheduleListLiveData
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is home Fragment"  /*todo ここでじっそうする*/
@@ -24,7 +28,7 @@ class HomeViewModel : ViewModel() {
 
     //初期時に実施される
     init {
-        scheduleListLiveData.postValue(scheduleRepository.getScheduleData())
+        mScheduleListLiveData.value=ScheduleRepository().getScheduleData().value
     }
 
     companion object{
