@@ -15,7 +15,7 @@ class ScheduleMapper {
             val snippet=it.snippet?:return@mapNotNull null
             Schedule().apply {
                 id =it.id
-                distributor = memberName(it.id)
+                distributor = memberName(it.snippet.channelId)
                 title =snippet.title
                 channelId =snippet.channelId
                 description =snippet.description

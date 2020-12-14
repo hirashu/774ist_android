@@ -40,8 +40,7 @@ class HomeViewModel @ViewModelInject constructor(application: Application) :
         fun loadImage(view: ImageView, imageUrl: String?) {
             if (imageUrl != null) {
                 Glide.with(view.context)
-                    .load(imageUrl).apply(RequestOptions().circleCrop())
-                    .into(view)
+                    .load(imageUrl).into(view)
             }
         }
     }

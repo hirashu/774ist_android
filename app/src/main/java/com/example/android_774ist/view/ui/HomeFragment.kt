@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.observe
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android_774ist.databinding.FragmentHomeBinding
 import com.example.android_774ist.service.model.Schedule
 import com.example.android_774ist.view.adapter.RecyclerScheduleAdapter
@@ -29,6 +30,9 @@ class HomeFragment : Fragment() {
         homeViewModel =
             ViewModelProviders.of(this)[HomeViewModel::class.java]
 
+        val layout = LinearLayoutManager(this.context)
+
+        binding.lvSchedule.layoutManager=layout
         scheduleAdapter = RecyclerScheduleAdapter()
         binding.lvSchedule.adapter = scheduleAdapter
 
