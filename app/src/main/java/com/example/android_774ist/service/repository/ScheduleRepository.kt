@@ -12,8 +12,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import javax.inject.Inject
 
-class ScheduleRepository {
+class ScheduleRepository @Inject constructor(){
     //APIから値を受け取る処理(OK,NGで分岐する)
     private val apiUrl="https://hirashu.net/api_774inc-Schedule/"
 

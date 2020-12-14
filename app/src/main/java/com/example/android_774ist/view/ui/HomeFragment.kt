@@ -32,19 +32,24 @@ class HomeFragment : Fragment() {
         scheduleAdapter = RecyclerScheduleAdapter()
         binding.lvSchedule.adapter = scheduleAdapter
 
+        binding.btAll774inc.setOnClickListener {
+            scheduleAdapter.setScheduleList(homeViewModel.scheduleListLiveData.value)
+        }
+
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         //todo ViewModelの設定を行うまたデータ取得を行う
-        val viewModel: HomeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        obtainViewModel(viewModel)
+        obtainViewModel(homeViewModel)
     }
 
     private fun obtainViewModel(viewModel: HomeViewModel) {
-        /*viewModel.scheduleListLiveData.observe(viewLifecycleOwner, Observer {it->
+        viewModel.scheduleListLiveData.observe(viewLifecycleOwner, Observer { it ->
             scheduleAdapter.setScheduleList(it)
-        })*/
+        })
     }
+
+
 }

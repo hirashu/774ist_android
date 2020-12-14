@@ -14,18 +14,19 @@ import com.example.android_774ist.databinding.RecyclerScheduleViewBinding
 import com.example.android_774ist.service.model.Schedule
 
 
-class RecyclerScheduleAdapter : RecyclerView.Adapter<RecyclerScheduleAdapter.RecyclerScheduleViewHolder>() {
+class RecyclerScheduleAdapter :
+    RecyclerView.Adapter<RecyclerScheduleAdapter.RecyclerScheduleViewHolder>() {
 
-    private var mScheduleList: List<Schedule>?=null
+    private var mScheduleList: List<Schedule>? = null
 
-    fun setScheduleList(scheduleList: List<Schedule>?){
-        if (scheduleList==null){
+    fun setScheduleList(scheduleList: List<Schedule>?) {
+        if (scheduleList == null) {
             return
         }
-        if (mScheduleList==null) {
+        if (mScheduleList == null) {
             mScheduleList = scheduleList
-            notifyItemRangeInserted(0,scheduleList.size)
-        }else {
+            notifyItemRangeInserted(0, scheduleList.size)
+        } else {
             val result = DiffUtil.calculateDiff(object : DiffUtil.Callback() {
                 override fun getOldListSize(): Int {
                     return requireNotNull(this@RecyclerScheduleAdapter.mScheduleList).size
@@ -36,7 +37,7 @@ class RecyclerScheduleAdapter : RecyclerView.Adapter<RecyclerScheduleAdapter.Rec
                 }
 
                 override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-                    val oldList =this@RecyclerScheduleAdapter.mScheduleList
+                    val oldList = this@RecyclerScheduleAdapter.mScheduleList
                     return oldList?.get(oldItemPosition)?.id == scheduleList[newItemPosition].id
                 }
 
@@ -46,7 +47,7 @@ class RecyclerScheduleAdapter : RecyclerView.Adapter<RecyclerScheduleAdapter.Rec
                 ): Boolean {
                     val schedule = scheduleList[newItemPosition]
                     val old = scheduleList[oldItemPosition]
-                    return schedule.id==old.id
+                    return schedule.id == old.id
                 }
             })
             mScheduleList = scheduleList
@@ -55,21 +56,24 @@ class RecyclerScheduleAdapter : RecyclerView.Adapter<RecyclerScheduleAdapter.Rec
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerScheduleViewHolder {
-        val binding =DataBindingUtil.inflate(LayoutInflater.from(parent.context),
-            R.layout.recycler_schedule_view, parent, false) as RecyclerScheduleViewBinding
+        val binding = DataBindingUtil.inflate(
+            LayoutInflater.from(parent.context),
+            R.layout.recycler_schedule_view, parent, false
+        ) as RecyclerScheduleViewBinding
         return RecyclerScheduleViewHolder(binding)
     }
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: RecyclerScheduleViewHolder, position: Int) {
-        holder.binding.scheduleInfo= mScheduleList?.get(position)
+        holder.binding.scheduleInfo = mScheduleList?.get(position)
         holder.binding.executePendingBindings()
     }
 
     override fun getItemCount(): Int {
         //リストデータの件数をリターン
-        return mScheduleList?.size?:0
+        return mScheduleList?.size ?: 0
     }
 
-    open class RecyclerScheduleViewHolder(val binding: RecyclerScheduleViewBinding) : RecyclerView.ViewHolder(binding.root)
+    open class RecyclerScheduleViewHolder(val binding: RecyclerScheduleViewBinding) :
+        RecyclerView.ViewHolder(binding.root)
 }
