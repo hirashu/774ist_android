@@ -1,8 +1,12 @@
 package com.example.android_774ist.view.adapter
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.DiffUtil
@@ -14,7 +18,7 @@ import com.example.android_774ist.databinding.RecyclerScheduleViewBinding
 import com.example.android_774ist.service.model.Schedule
 
 
-class RecyclerScheduleAdapter :
+class RecyclerScheduleAdapter(private val context: Context?) :
     RecyclerView.Adapter<RecyclerScheduleAdapter.RecyclerScheduleViewHolder>() {
 
     private var mScheduleList: List<Schedule>? = null
@@ -70,6 +74,15 @@ class RecyclerScheduleAdapter :
     override fun onBindViewHolder(holder: RecyclerScheduleViewHolder, position: Int) {
         holder.binding.scheduleInfo = mScheduleList?.get(position)
         holder.binding.executePendingBindings()
+        if(context!=null) {
+            //fixme 書き方を修正したほうがいいかもフラグメントへ移動させる。viewにコールバックを追加する
+            holder.binding.ivImg.setOnClickListener {
+                val uri: Uri =
+                    Uri.parse("https://www.youtube.com/watch?v=" + mScheduleList?.get(position)?.broadcastId)
+                // アプリが見つからなければ、ActivityNotFoundException
+                ContextCompat.startActivity(context, Intent(Intent.ACTION_VIEW, uri), null)
+            }
+        }
     }
 
     override fun getItemCount(): Int {

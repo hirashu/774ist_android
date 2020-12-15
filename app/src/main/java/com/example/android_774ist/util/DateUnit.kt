@@ -1,11 +1,17 @@
 package com.example.android_774ist.util
 
 import android.annotation.SuppressLint
+import kotlinx.coroutines.channels.consumesAll
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class DateUnit{
+
+    companion object{
+        const val UNDECIDED="未定"
+    }
 
     /**今の時間を取得する*/
     fun now() :Date= Date()
@@ -109,17 +115,52 @@ class DateUnit{
 
     /**DateTimeをHH:MM形式に変換する*/
     fun formHmmDate(date: Date?):String{
-        date?:return ""
+        date?:return UNDECIDED
         val sdf = SimpleDateFormat("H:mm")
         return sdf.format(date)
     }
 
     @SuppressLint("SimpleDateFormat")
     fun formHmmDate(dateTime: Long?):String{
-        dateTime?:return ""
+        dateTime?:return UNDECIDED
         val date= Date()
         date.time=dateTime
         val sdf = SimpleDateFormat("H:mm")
         return sdf.format(date)
     }
+
+    @SuppressLint("SimpleDateFormat")
+    fun formHmmDate(dateTime: String?):String{
+        dateTime?:return UNDECIDED
+        val sdf = SimpleDateFormat("H:mm")
+        try {
+            return sdf.format(dateTime)
+        }catch (e:Exception){
+            //nop
+        }
+        return UNDECIDED
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    fun formHmmDateRFC3339Date(dateString: String?): String {
+        dateString?:return UNDECIDED
+        val s = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+        s.timeZone = TimeZone.getTimeZone("UTC")
+        val sdf = SimpleDateFormat("H:mm")
+        val date: Date
+
+        //if there is no time zone, we don't need to do any special parsing.
+        if (dateString.endsWith("Z")) {
+            return try {
+                //時間の解析（String->Data）
+                date = s.parse(dateString)
+                //時間書式設定用（String->Data）
+                sdf.format(date)
+            } catch (pe: ParseException) { //try again with optional decimals
+                UNDECIDED
+            }
+        }
+        return UNDECIDED
+    }
+
 }

@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
         homeViewModel =
             ViewModelProviders.of(this)[HomeViewModel::class.java]
 
-        scheduleAdapter = RecyclerScheduleAdapter()
+        scheduleAdapter = RecyclerScheduleAdapter(this.context)
         binding.lvSchedule.adapter = scheduleAdapter
 
         binding.btAll774inc.setOnClickListener {
