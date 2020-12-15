@@ -5,11 +5,11 @@ enum class Member774inc(val group: Group774Inc,val castName:String, val chId: St
     /**あにまーれ*/
     INABA_HANERU(Group774Inc.ANIMARE,"因幡はねる","UC0Owc36U9lOyi9Gx9Ic-4qg"),
     SOUYA_ICHIKA(Group774Inc.ANIMARE,"宗谷いちか","UC2kyQhzGOB-JPgcQX9OMgEw"),
-    /*HINOKUMA_RAN(Group774Inc.ANIMARE,"日ノ隈らん","UCRvpMpzAXBRKJQuk-8-Sdvg"),
+    HINOKUMA_RAN(Group774Inc.ANIMARE,"日ノ隈らん","UCRvpMpzAXBRKJQuk-8-Sdvg"),
     KAZAMI_KUKU(Group774Inc.ANIMARE,"風見くく","UCXp7sNC0F_qkjickvlYkg-Q"),
     YUNOHARA_IZUMI(Group774Inc.ANIMARE,"柚原いづみ","UCW8WKciBixmaqaGqrlTITRQ"),
     SHIROMIYA_MIMI(Group774Inc.ANIMARE,"白宮みみ","UCtzCQnCT9E4o6U3mHHSHbQQ"),
-    HASHIBA_NATSUMI(Group774Inc.ANIMARE,"羽柴なつみ","UC_BlXOQe5OcRC7o0GX8kp8A"),*/
+    HASHIBA_NATSUMI(Group774Inc.ANIMARE,"羽柴なつみ","UC_BlXOQe5OcRC7o0GX8kp8A"),
     /**ハニーストラップ*/
     SUO_PATRA(Group774Inc.HONEY_STRAP,"周防パトラ","UCeLzT-7b2PBcunJplmWtoDg"),
     /*SAIENJI_MARY(Group774Inc.HONEY_STRAP,"西園寺メアリ","UCwePpiw1ocZRSNSkpKvVISw"),
@@ -21,10 +21,10 @@ enum class Member774inc(val group: Group774Inc,val castName:String, val chId: St
     SHISHIO_CHRIS(Group774Inc.SUGAR_LYRIC,"獅子王クリス","UC--A2dwZW7-M2kID0N6_lfA"),
     /**Vアパ*/
     ANDO_YUGE(Group774Inc.V_APA,"杏戸ゆげ","UC3EhsuKdEkI99TWZwZgWutg"),
-    /*KISAKI_ANKO(Group774Inc.V_APA,"季咲あんこ","UChXm-xAYPfygrbyLo2yCASQ"),
+    KISAKI_ANKO(Group774Inc.V_APA,"季咲あんこ","UChXm-xAYPfygrbyLo2yCASQ"),
     KANADE_KANON(Group774Inc.V_APA,"花奏かのん","UCmqrvfLMws-GLGHQcB5dasg"),
     KOMORI_METO(Group774Inc.V_APA,"小森めと","UCzUNASdzI4PV5SlqtYwAkKQ"),
-    FUMA_MAT(Group774Inc.V_APA,"不磨わっと","UCV4EoK6BVNl7wxuxpUvvSWA");*/
+    FUMA_MAT(Group774Inc.V_APA,"不磨わっと","UCV4EoK6BVNl7wxuxpUvvSWA");
 
 }
 
@@ -47,4 +47,9 @@ fun groupChannelIdList(group: Group774Inc):List<String>{
 /**ChannelIdからメンバー名を所得する*/
 fun memberName(chanelId: String?):String{
     return Member774inc.values().firstOrNull{it.chId==chanelId}?.castName ?:""
+}
+
+/**ChannelIdからグループのEnumを所得する*/
+fun group774inc(chanelId: String?):Group774Inc?{
+    return Member774inc.values().firstOrNull{it.chId==chanelId}?.group
 }
