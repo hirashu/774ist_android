@@ -30,9 +30,6 @@ class HomeFragment : Fragment() {
         homeViewModel =
             ViewModelProviders.of(this)[HomeViewModel::class.java]
 
-        val layout = LinearLayoutManager(this.context)
-
-        binding.lvSchedule.layoutManager=layout
         scheduleAdapter = RecyclerScheduleAdapter()
         binding.lvSchedule.adapter = scheduleAdapter
 

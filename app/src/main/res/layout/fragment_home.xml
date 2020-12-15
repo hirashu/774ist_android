@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.ui.MainScheduleFragment">
 
     <data>
@@ -78,7 +79,8 @@
             android:layout_height="wrap_content"
             android:scrollbars="vertical"
             android:background="@drawable/border_black"
-            android:padding="1dp"/>
+            android:padding="1dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
     </LinearLayout>
 </layout>

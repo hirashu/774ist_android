@@ -22,16 +22,12 @@ class HomeViewModel @ViewModelInject constructor(application: Application) :
     //監視対象のLiveData
     private var mScheduleListLiveData: MutableLiveData<List<Schedule>> = MutableLiveData()
     val scheduleListLiveData: LiveData<List<Schedule>>
-        get() = scheduleRepository.getScheduleData()
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"  /*todo ここでじっそうする*/
-    }
-    val text: LiveData<String> = _text
+        get() = scheduleRepository.dataList //ここの実装が気に入らない
 
     //初期時に実施される
     init {
         mScheduleListLiveData.value = scheduleRepository.getScheduleData().value
+        //todo 運用がscheduleRepository.getScheduleData().value　と変らないので気に入らない
     }
 
     companion object {

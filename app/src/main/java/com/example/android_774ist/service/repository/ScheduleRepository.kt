@@ -19,9 +19,11 @@ class ScheduleRepository @Inject constructor(){
     private val apiUrl="https://hirashu.net/api_774inc-Schedule/"
 
     private val client =Client()
+    //todo ココの実装が気に入らない
+    val dataList: MutableLiveData<List<Schedule>> = MutableLiveData();
 
     fun getScheduleData(): LiveData<List<Schedule>> {
-        val dataList: MutableLiveData<List<Schedule>> = MutableLiveData();
+        //val dataList: MutableLiveData<List<Schedule>> = MutableLiveData();
         //リクエストURIを作成して、データを取得する
         client.createService(apiUrl).getSchedule().enqueue(object :
             Callback<ScheduleResult> {
