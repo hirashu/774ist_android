@@ -9,6 +9,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.android_774ist.const.Group774Inc
 import com.example.android_774ist.service.model.Schedule
 import com.example.android_774ist.service.repository.ScheduleRepository
 import javax.inject.Inject
@@ -28,6 +29,15 @@ class HomeViewModel @ViewModelInject constructor(application: Application) :
     init {
         mScheduleListLiveData.value = scheduleRepository.getScheduleData().value
         //todo 運用がscheduleRepository.getScheduleData().value　と変らないので気に入らない
+    }
+
+    //フィルターViewモデルで
+    fun groupScheduleList(group: Group774Inc): List<Schedule>? {
+        return if (group == Group774Inc.ALL) {
+            scheduleRepository.dataList.value
+        } else {
+            scheduleRepository.dataList.value?.filter { it.group == group }
+        }
     }
 
     companion object {

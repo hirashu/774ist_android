@@ -38,16 +38,19 @@ class RecyclerScheduleAdapter :
 
                 override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
                     val oldList = this@RecyclerScheduleAdapter.mScheduleList
-                    return oldList?.get(oldItemPosition)?.id == scheduleList[newItemPosition].id
+                    return oldList?.get(oldItemPosition)?.broadcastId == scheduleList[newItemPosition].broadcastId
                 }
 
                 override fun areContentsTheSame(
                     oldItemPosition: Int,
                     newItemPosition: Int
                 ): Boolean {
+                    if(newItemPosition>=scheduleList.size || oldItemPosition>=scheduleList.size){
+                        return false
+                    }
                     val schedule = scheduleList[newItemPosition]
                     val old = scheduleList[oldItemPosition]
-                    return schedule.id == old.id
+                    return schedule.broadcastId == old.broadcastId
                 }
             })
             mScheduleList = scheduleList

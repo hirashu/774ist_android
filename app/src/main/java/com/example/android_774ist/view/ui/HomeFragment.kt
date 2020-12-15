@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.android_774ist.const.Group774Inc
 import com.example.android_774ist.databinding.FragmentHomeBinding
 import com.example.android_774ist.service.model.Schedule
 import com.example.android_774ist.view.adapter.RecyclerScheduleAdapter
@@ -34,7 +35,23 @@ class HomeFragment : Fragment() {
         binding.lvSchedule.adapter = scheduleAdapter
 
         binding.btAll774inc.setOnClickListener {
-            scheduleAdapter.setScheduleList(homeViewModel.scheduleListLiveData.value)
+            scheduleAdapter.setScheduleList(homeViewModel.groupScheduleList(Group774Inc.ALL))
+        }
+
+        binding.btAniMare.setOnClickListener {
+            scheduleAdapter.setScheduleList(homeViewModel.groupScheduleList(Group774Inc.ANIMARE))
+        }
+
+        binding.btHoneyStrap.setOnClickListener {
+            scheduleAdapter.setScheduleList(homeViewModel.groupScheduleList(Group774Inc.HONEY_STRAP))
+        }
+
+        binding.btSugarLyric.setOnClickListener {
+            scheduleAdapter.setScheduleList(homeViewModel.groupScheduleList(Group774Inc.SUGAR_LYRIC))
+        }
+
+        binding.btVApArt.setOnClickListener {
+            scheduleAdapter.setScheduleList(homeViewModel.groupScheduleList(Group774Inc.V_APA))
         }
 
         return binding.root

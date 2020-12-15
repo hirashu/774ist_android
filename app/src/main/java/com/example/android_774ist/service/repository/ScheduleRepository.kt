@@ -15,6 +15,7 @@ import retrofit2.Retrofit
 import javax.inject.Inject
 
 class ScheduleRepository @Inject constructor(){
+    //todo 非同期処理としてイケていないので作り直す
     //APIから値を受け取る処理(OK,NGで分岐する)
     private val apiUrl="https://hirashu.net/api_774inc-Schedule/"
 

@@ -48,3 +48,8 @@ fun groupChannelIdList(group: Group774Inc):List<String>{
 fun memberName(chanelId: String?):String{
     return Member774inc.values().firstOrNull{it.chId==chanelId}?.castName ?:""
 }
+
+/**ChannelIdからグループのEnumを所得する*/
+fun group774inc(chanelId: String?):Group774Inc?{
+    return Member774inc.values().firstOrNull{it.chId==chanelId}?.group
+}
