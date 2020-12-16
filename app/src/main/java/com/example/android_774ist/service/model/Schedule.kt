@@ -7,6 +7,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.example.android_774ist.const.Group774Inc
+import java.util.*
 
 
 class Schedule {
@@ -18,6 +19,6 @@ class Schedule {
     var description:String?=null
     var thumbnailsImgUrl:String?=null
     var liveBroadcastContent:String?=null
-    var scheduledStartTime :String? =null
+    var scheduledStartTime : Date? =null
     var actualStartTime :String? =null
 }

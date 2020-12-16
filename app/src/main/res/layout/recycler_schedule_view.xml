@@ -29,7 +29,7 @@
             android:layout_marginStart="3dp"
             android:layout_weight="1"
             android:textStyle="bold"
-            android:text="@{scheduleInfo.scheduledStartTime}"
+            app:formHmmDate="@{scheduleInfo.scheduledStartTime}"
             tools:text="@string/schedule_time" />
 
     </LinearLayout>

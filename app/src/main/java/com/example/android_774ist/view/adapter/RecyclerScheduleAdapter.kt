@@ -73,7 +73,6 @@ class RecyclerScheduleAdapter(private val context: Context?) :
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: RecyclerScheduleViewHolder, position: Int) {
         holder.binding.scheduleInfo = mScheduleList?.get(position)
-        holder.binding.executePendingBindings()
         if(context!=null) {
             //fixme 書き方を修正したほうがいいかもフラグメントへ移動させる。viewにコールバックを追加する
             holder.binding.ivImg.setOnClickListener {
@@ -83,6 +82,7 @@ class RecyclerScheduleAdapter(private val context: Context?) :
                 ContextCompat.startActivity(context, Intent(Intent.ACTION_VIEW, uri), null)
             }
         }
+        holder.binding.executePendingBindings()
     }
 
     override fun getItemCount(): Int {

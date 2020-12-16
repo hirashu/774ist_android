@@ -25,7 +25,7 @@ class ScheduleMapper {
                 //todo scheduledStartTimeはData型で保持までが正しい。ソートはvmで行う感じで
                 scheduledStartTime = it.liveStreamingDetails?.scheduledStartTime?.let { it1 ->
                     DateUnit().formHmmDateRFC3339Date(it1)
-                }.toString()
+                }
                 actualStartTime =it.liveStreamingDetails?.actualStartTime
             }
         }

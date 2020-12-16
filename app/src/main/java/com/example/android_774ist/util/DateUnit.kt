@@ -142,25 +142,19 @@ class DateUnit{
     }
 
     @SuppressLint("SimpleDateFormat")
-    fun formHmmDateRFC3339Date(dateString: String?): String {
-        dateString?:return UNDECIDED
+    fun formHmmDateRFC3339Date(dateString: String?): Date? {
+        dateString?:return null
         val s = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
         s.timeZone = TimeZone.getTimeZone("UTC")
-        val sdf = SimpleDateFormat("H:mm")
-        val date: Date
-
-        //if there is no time zone, we don't need to do any special parsing.
         if (dateString.endsWith("Z")) {
             return try {
                 //時間の解析（String->Data）
-                date = s.parse(dateString)
-                //時間書式設定用（String->Data）
-                sdf.format(date)
+                s.parse(dateString)
             } catch (pe: ParseException) { //try again with optional decimals
-                UNDECIDED
+                null
             }
         }
-        return UNDECIDED
+        return null
     }
 
 }

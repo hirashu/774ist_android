@@ -65,7 +65,7 @@ class HomeFragment : Fragment() {
 
     private fun obtainViewModel(viewModel: HomeViewModel) {
         viewModel.scheduleListLiveData.observe(viewLifecycleOwner, Observer { it ->
-            scheduleAdapter.setScheduleList(it)
+            scheduleAdapter.setScheduleList(it.sortedBy { it.scheduledStartTime })//ココのソート処理をviewModelで行いたい
         })
     }
 
