@@ -21,4 +21,7 @@ class Schedule {
     var liveBroadcastContent:String?=null
     var scheduledStartTime : Date? =null
     var actualStartTime :String? =null
+    //将来的になくすパラメータ
+    var isVisibleDay:Boolean =false
+    var isVisibleTime:Boolean =false
 }
