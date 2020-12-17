@@ -39,9 +39,9 @@ class HomeViewModel @ViewModelInject constructor(application: Application) :
     //fixme 本来ならソートしたモデルでフィルターを実行する(マッパーでソートしたほうがいい？？)
     fun groupScheduleList(group: Group774Inc): List<Schedule>? {
         return if (group == Group774Inc.ALL) {
-            scheduleRepository.dataList.value?.sortedBy { it.scheduledStartTime }
+            scheduleRepository.dataList.value
         } else {
-            scheduleRepository.dataList.value?.filter { it.group == group }?.sortedBy { it.scheduledStartTime }
+            scheduleRepository.dataList.value?.filter { it.group == group }
         }
     }
 

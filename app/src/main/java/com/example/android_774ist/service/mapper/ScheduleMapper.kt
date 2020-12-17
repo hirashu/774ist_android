@@ -28,6 +28,6 @@ class ScheduleMapper {
                 }
                 actualStartTime =it.liveStreamingDetails?.actualStartTime
             }
-        }
+        }.sortedBy { it.scheduledStartTime }
     }
 }
