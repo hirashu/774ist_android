@@ -65,7 +65,7 @@ class HomeFragment : Fragment() {
 
     private fun obtainViewModel(viewModel: HomeViewModel) {
         viewModel.scheduleListLiveData.observe(viewLifecycleOwner, Observer { it ->
-            scheduleAdapter.setScheduleList(it)
+            scheduleAdapter.setScheduleList(HomeViewModel.setVisibleTime(it))
         })
     }
 

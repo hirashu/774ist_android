@@ -114,6 +114,13 @@ class DateUnit{
     }
 
     /**DateTimeをHH:MM形式に変換する*/
+    fun formMMddDate(date: Date?):String{
+        date?:return UNDECIDED
+        val sdf = SimpleDateFormat("MM月dd日")
+        return sdf.format(date)
+    }
+
+    /**DateTimeをHH:MM形式に変換する*/
     fun formHmmDate(date: Date?):String{
         date?:return UNDECIDED
         val sdf = SimpleDateFormat("H:mm")

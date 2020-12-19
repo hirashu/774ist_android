@@ -26,11 +26,12 @@
             android:id="@+id/tvScheduleDay"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginStart="1dp"
             android:layout_weight="1"
+            android:background="@color/lightSkyBlue"
             android:textStyle="bold"
-            app:formHmmDate="@{scheduleInfo.scheduledStartTime}"
-            android:textSize="15sp"
+            app:formMMddDate="@{scheduleInfo.scheduledStartTime}"
+            android:textSize="18sp"
+            app:visibility="@{scheduleInfo.visibleDay}"
             tools:text="@string/schedule_day" />
 
         <TextView
@@ -40,7 +41,9 @@
             android:layout_marginStart="3dp"
             android:layout_weight="1"
             android:textStyle="bold"
+            android:textSize="16sp"
             app:formHmmDate="@{scheduleInfo.scheduledStartTime}"
+            app:visibility="@{scheduleInfo.visibleTime}"
             tools:text="@string/schedule_time" />
 
     </LinearLayout>
