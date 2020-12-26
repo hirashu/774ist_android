@@ -10,11 +10,13 @@ enum class Member774inc(val group: Group774Inc,val castName:String, val chId: St
     YUNOHARA_IZUMI(Group774Inc.ANIMARE,"柚原いづみ","UCW8WKciBixmaqaGqrlTITRQ"),
     SHIROMIYA_MIMI(Group774Inc.ANIMARE,"白宮みみ","UCtzCQnCT9E4o6U3mHHSHbQQ"),
     HASHIBA_NATSUMI(Group774Inc.ANIMARE,"羽柴なつみ","UC_BlXOQe5OcRC7o0GX8kp8A"),
+    SESHIMA_RUI(Group774Inc.ANIMARE,"瀬島るい","UC_WOBIopwUih0rytRnr_1Ag"),
+    HIRA_HIKARI(Group774Inc.ANIMARE,"飛良ひかり","UCFsWaTQ7kT76jNNGeGIKNSA"),
     /**ハニーストラップ*/
     SUO_PATRA(Group774Inc.HONEY_STRAP,"周防パトラ","UCeLzT-7b2PBcunJplmWtoDg"),
-    /*SAIENJI_MARY(Group774Inc.HONEY_STRAP,"西園寺メアリ","UCwePpiw1ocZRSNSkpKvVISw"),
+    SAIENJI_MARY(Group774Inc.HONEY_STRAP,"西園寺メアリ","UCwePpiw1ocZRSNSkpKvVISw"),
     SEKISHIRO_MICO(Group774Inc.HONEY_STRAP,"堰代ミコ","UCDh2bWI5EDu7PavqwICkVpA"),
-    SHIMAMURA_CHARLOTTE(Group774Inc.HONEY_STRAP,"島村シャルロット","UCYTz3uIgwVY3ZU-IQJS8r3A"),*/
+    SHIMAMURA_CHARLOTTE(Group774Inc.HONEY_STRAP,"島村シャルロット","UCYTz3uIgwVY3ZU-IQJS8r3A"),
     /**シュガーリリック*/
     RYUGASAKI_RENE(Group774Inc.SUGAR_LYRIC,"龍ヶ崎リン","UC2hc-00y-MSR6eYA4eQ4tjQ"),
     KOJO_ANNA(Group774Inc.SUGAR_LYRIC,"虎城アンナ","UCvPPBoTOor5gm8zSlE2tg4w"),

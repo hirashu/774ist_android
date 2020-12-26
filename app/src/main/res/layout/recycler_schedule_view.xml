@@ -109,7 +109,7 @@
                 android:lines="3"
                 android:textSize="12sp"
                 android:layout_marginEnd="8dp"
-                android:text="@{scheduleInfo.description}"
+                android:text="@{scheduleInfo.title}"
                 tools:text="@string/broadcast_title" />
 
         </LinearLayout>

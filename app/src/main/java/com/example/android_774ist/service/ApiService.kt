@@ -6,6 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiService {
-    @GET("schedule")
+    @GET("schedule?apl=android")
     fun getSchedule(): Call<ScheduleResult>
 }
