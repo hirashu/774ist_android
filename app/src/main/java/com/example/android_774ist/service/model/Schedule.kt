@@ -20,7 +20,7 @@ class Schedule {
     var thumbnailsImgUrl:String?=null
     var liveBroadcastContent:String?=null
     var scheduledStartTime : Date? =null
-    var actualStartTime :String? =null
+    var actualStartTime :Date? =null
     //将来的になくすパラメータ
     var isVisibleDay:Boolean =false
     var isVisibleTime:Boolean =false

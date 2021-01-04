@@ -37,7 +37,7 @@ class HomeViewModel @ViewModelInject constructor(application: Application) :
     }
 
     //fixme 本来ならソートしたモデルでフィルターを実行する(マッパーでソートしたほうがいい？？)
-    fun groupScheduleList(group: Group774Inc): List<Schedule>? {
+    fun groupScheduleList(group: Group774Inc): List<Schedule> {
         return if (group == Group774Inc.ALL) {
             setVisibleTime(scheduleRepository.dataList.value)
         } else {

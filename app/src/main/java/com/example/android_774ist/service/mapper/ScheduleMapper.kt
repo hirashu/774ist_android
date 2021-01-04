@@ -23,10 +23,13 @@ class ScheduleMapper {
                 thumbnailsImgUrl =snippet.thumbnails?.medium?.url
                 liveBroadcastContent= snippet.liveBroadcastContent
                 //todo scheduledStartTimeはData型で保持までが正しい。ソートはvmで行う感じで
-                scheduledStartTime = it.liveStreamingDetails?.scheduledStartTime?.let { it1 ->
-                    DateUnit().formHmmDateRFC3339Date(it1)
+                actualStartTime =it.liveStreamingDetails?.actualStartTime?.let { time ->
+                    DateUnit().formHmmDateRFC3339Date(time)
                 }
-                actualStartTime =it.liveStreamingDetails?.actualStartTime
+                scheduledStartTime = it.liveStreamingDetails?.scheduledStartTime?.let { time ->
+                    DateUnit().formHmmDateRFC3339Date(time)
+                }?:actualStartTime
+
             }
         }.sortedBy { it.scheduledStartTime }
     }
