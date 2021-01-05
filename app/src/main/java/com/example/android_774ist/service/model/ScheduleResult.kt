@@ -16,6 +16,7 @@ data class ScheduleResult(
         /**TODO ここはenumクラス化するか考える*/
         val liveBroadcastContent:String?=null
         val channelId:String?=null
+        val publishedAt :String? =null
 
     }
 

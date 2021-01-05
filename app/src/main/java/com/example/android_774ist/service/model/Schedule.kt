@@ -19,6 +19,7 @@ class Schedule {
     var description:String?=null
     var thumbnailsImgUrl:String?=null
     var liveBroadcastContent:String?=null
+    var publishedAt : Date? =null
     var scheduledStartTime : Date? =null
     var actualStartTime :Date? =null
     //将来的になくすパラメータ
