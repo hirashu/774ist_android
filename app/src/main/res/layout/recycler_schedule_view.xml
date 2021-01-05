@@ -7,7 +7,7 @@
     <data>
         <variable
             name="scheduleInfo"
-            type="com.example.android_774ist.service.model.Schedule" />
+            type="com.apl.android_774ist.service.model.Schedule" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
