@@ -76,21 +76,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lvSchedule"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.9"
+            android:layout_height="wrap_content"
             android:scrollbars="vertical"
             android:background="@drawable/border_black"
+            android:layout_marginBottom="@dimen/bottom_navigation_view_height"
             android:padding="1dp"
+            tools:listitem="@layout/recycler_schedule_view"
+            tools:itemCount="6"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-        <!-- TODO 下のバー分ほど下駄をはかせる。weightを用いる応急実装のためリファクタリングが必要かな -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1" />
         </LinearLayout>
     </LinearLayout>
 </layout>
