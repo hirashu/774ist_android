@@ -5,4 +5,7 @@
 
     <!-- navigation view -->
     <dimen name="bottom_navigation_view_height">60dp</dimen>
+
+    <!-- タレント一覧画面 -->
+    <dimen name="talent_view_talent_image_size">60dp</dimen>
 </resources>

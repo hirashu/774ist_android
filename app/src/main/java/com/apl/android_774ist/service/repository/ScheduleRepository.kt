@@ -12,46 +12,38 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-class ScheduleRepository @Inject constructor(){
-    //todo 非同期処理としてイケていないので作り直す
-    //APIから値を受け取る処理(OK,NGで分岐する)
-    private val apiUrl="https://hirashu.net/api_774inc-Schedule/"
+class ScheduleRepository @Inject constructor() {
 
-    private val client =Client()
-    //todo ココの実装が気に入らない
+    private val apiUrl = "https://hirashu.net/api_774inc-Schedule/"
+
+    private val client = Client()
+
     val dataList: MutableLiveData<List<Schedule>> = MutableLiveData();
 
-    fun getScheduleData(): LiveData<List<Schedule>> {
+    fun getScheduleDataTask() {
         //val dataList: MutableLiveData<List<Schedule>> = MutableLiveData();
         //リクエストURIを作成して、データを取得する
         client.createService(apiUrl).getSchedule().enqueue(object :
             Callback<ScheduleResult> {
 
             //非同期処理
-            override fun onResponse(call: Call<ScheduleResult>, response: Response<ScheduleResult>) {
-                Log.d("TAGres","onResponse")
+            override fun onResponse(
+                call: Call<ScheduleResult>,
+                response: Response<ScheduleResult>
+            ) {
+                Log.d("TAGres", "onResponse")
 
                 //ステータスコードが200：OK.データも取得済み
                 if (response.isSuccessful) {
                     //dataListのリターン後に以下が行われる
-                     dataList.value= ScheduleMapper().mapper(response.body())
+                    dataList.value = ScheduleMapper().mapper(response.body())
                 } else {
                     //ステータスコードが200以外の処理
                 }
             }
             override fun onFailure(call: Call<ScheduleResult>, t: Throwable) {
-                Log.d("TAGres","onFailure")
+                Log.d("TAGres", "onFailure")
             }
         })
-        return dataList
     }
-
-    /** todo いったん除外
-    companion object Factory{
-        val instance:ScheduleRepository
-        //todo このアノテーションの意味を確認する
-        @Synchronized get() {return ScheduleRepository()}
-    }
-    */
-
 }
