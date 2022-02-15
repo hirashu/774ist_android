@@ -4,75 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.ui.MainScheduleFragment">
 
-    <data>
-
-        <variable
-            name="group"
-            type="int" />
-    </data>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/border_black"
-            android:visibility="visible">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:gravity="center">
-
-                <Button
-                    android:id="@+id/btAll774inc"
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/ic_74inc"
-                    android:scaleX="0.9"
-                    android:scaleY="0.7" />
-
-                <Button
-                    android:id="@+id/btAniMare"
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/ic_animare"
-                    android:scaleX="0.8"
-                    android:scaleY="0.8" />
-
-                <Button
-                    android:id="@+id/btHoneyStrap"
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/ic_honey_strap"
-                    android:scaleX="1"
-                    android:scaleY="0.8" />
-
-                <Button
-                    android:id="@+id/btSugarLyric"
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/ic_sugar_lyric"
-                    android:scaleX="0.5"
-                    android:scaleY="0.9" />
-
-                <Button
-                    android:id="@+id/btVApArt"
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/ic_vapart"
-                    android:scaleX="0.9"
-                    android:scaleY="0.6" />
-            </TableRow>
-        </LinearLayout>
+        <include
+            android:id="@+id/group_tab"
+            layout="@layout/group_tab" />
 
         <LinearLayout
             android:id="@+id/progressbar"

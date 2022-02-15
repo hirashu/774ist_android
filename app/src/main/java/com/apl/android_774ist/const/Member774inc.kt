@@ -35,7 +35,8 @@ enum class Group774Inc(val groupId: Int) {
     ANIMARE(1),
     HONEY_STRAP(2),
     SUGAR_LYRIC(3),
-    V_APA(4)
+    V_APA(4),
+    HIYOCRO(5)
 }
 
 /**メンバーのchIDを返す*/

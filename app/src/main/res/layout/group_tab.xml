@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/border_black"
+    android:visibility="visible">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/all774inc"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="3dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_74inc" />
+
+        <ImageView
+            android:id="@+id/animare"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="3dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_animare" />
+
+        <ImageView
+            android:id="@+id/honeyStrap"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="3dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_honey_strap" />
+
+        <ImageView
+            android:id="@+id/sugarLyric"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="3dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_sugar_lyric" />
+
+        <ImageView
+            android:id="@+id/vApArt"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="3dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_vapart" />
+
+        <ImageView
+            android:id="@+id/hiyocro"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="3dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_hiyocro_logo" />
+
+    </TableRow>
+</LinearLayout>
