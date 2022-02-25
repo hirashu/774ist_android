@@ -70,6 +70,7 @@ class HomeFragment : Fragment() {
             if (it == null) {
                 binding.progressbar.visibility = View.GONE
                 binding.loadError.visibility = View.VISIBLE
+                // todo APIの情報取得失敗の表示の追加
             } else {
                 binding.progressbar.visibility = View.GONE
                 binding.loadError.visibility = View.GONE

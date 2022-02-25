@@ -8,20 +8,18 @@ import androidx.databinding.BindingAdapter
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.bumptech.glide.Glide
 import com.apl.android_774ist.const.Group774Inc
 import com.apl.android_774ist.service.model.Schedule
 import com.apl.android_774ist.service.repository.ScheduleRepository
 import com.apl.android_774ist.util.DateUnit
+import com.bumptech.glide.Glide
 import java.util.*
-import javax.inject.Inject
+import java.util.Collections.emptyList
 
 class HomeViewModel @ViewModelInject constructor(application: Application) :
     AndroidViewModel(application) {
 
-    var scheduleRepository: ScheduleRepository = ScheduleRepository()
-        @Inject set
+    private var scheduleRepository: ScheduleRepository = ScheduleRepository()
 
     //監視対象のLiveData
     val scheduleListLiveData: LiveData<List<Schedule>>

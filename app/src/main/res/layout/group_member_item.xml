@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="groupMemberInfo"
             type="com.apl.android_774ist.service.model.GroupMemberInfo" />
@@ -18,17 +17,21 @@
             android:id="@+id/group_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingEnd="0dp"
             android:paddingVertical="5dp"
-            android:textSize="24sp"
+            android:textSize="20sp"
+            android:background="@drawable/border_black"
+            android:text="@{groupMemberInfo.groupName}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="あにまーれ" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/member_info_item_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/bottom_navigation_view_height"
-            android:background="@drawable/border_black"
             android:padding="1dp"
             android:verticalSpacing="20dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"

@@ -14,16 +14,15 @@ import javax.inject.Inject
 
 class ScheduleRepository @Inject constructor() {
 
-    private val apiUrl = "https://hirashu.net/api_774inc-Schedule/"
-
-    private val client = Client()
-
+    companion object{
+        private const val API_URL = "https://hirashu.net/api_774inc-Schedule/"
+    }
     val dataList: MutableLiveData<List<Schedule>> = MutableLiveData();
+    private val mClient = Client()
 
     fun getScheduleDataTask() {
-        //val dataList: MutableLiveData<List<Schedule>> = MutableLiveData();
         //リクエストURIを作成して、データを取得する
-        client.createService(apiUrl).getSchedule().enqueue(object :
+        mClient.createService(API_URL).getSchedule().enqueue(object :
             Callback<ScheduleResult> {
 
             //非同期処理
@@ -31,18 +30,18 @@ class ScheduleRepository @Inject constructor() {
                 call: Call<ScheduleResult>,
                 response: Response<ScheduleResult>
             ) {
-                Log.d("TAGres", "onResponse")
+                Log.d("TAG", "onResponse")
 
-                //ステータスコードが200：OK.データも取得済み
                 if (response.isSuccessful) {
-                    //dataListのリターン後に以下が行われる
+                    //ステータスコードが200：OK.データも取得済み
                     dataList.value = ScheduleMapper().mapper(response.body())
                 } else {
                     //ステータスコードが200以外の処理
+                    dataList.value = emptyList()
                 }
             }
             override fun onFailure(call: Call<ScheduleResult>, t: Throwable) {
-                Log.d("TAGres", "onFailure")
+                Log.d("TAG", "onFailure")
             }
         })
     }
