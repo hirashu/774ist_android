@@ -66,7 +66,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun obtainViewModel(viewModel: HomeViewModel) {
-        viewModel.scheduleListLiveData.observe(viewLifecycleOwner, {
+        viewModel.scheduleListLiveData.observe(viewLifecycleOwner) {
             if (it == null) {
                 binding.progressbar.visibility = View.GONE
                 binding.loadError.visibility = View.VISIBLE
@@ -77,6 +77,6 @@ class HomeFragment : Fragment() {
                 binding.lvSchedule.visibility = View.VISIBLE
                 scheduleAdapter.setScheduleList(HomeViewModel.setVisibleTime(it))
             }
-        })
+        }
     }
 }

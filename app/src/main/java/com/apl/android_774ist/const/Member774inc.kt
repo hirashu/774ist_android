@@ -40,12 +40,6 @@ enum class Member774inc(
         "UCW8WKciBixmaqaGqrlTITRQ",
         R.drawable.image_yunohara_izumi
     ),
-    SHIROMIYA_MIMI(
-        Group774Inc.ANIMARE,
-        "白宮みみ",
-        "UCtzCQnCT9E4o6U3mHHSHbQQ",
-        R.drawable.image_shiromiya_mimi
-    ),
     SESHIMA_RUI(
         Group774Inc.ANIMARE,
         "瀬島るい",
@@ -57,6 +51,24 @@ enum class Member774inc(
         "飛良ひかり",
         "UCFsWaTQ7kT76jNNGeGIKNSA",
         R.drawable.image_hira_hikari
+    ),
+    OURA_RUKAKO(
+        Group774Inc.ANIMARE,
+        "大浦るかこ",
+        "UC3xG1XWzAKt5dxSxktJvtxg",
+        R.drawable.image_oura_ruako
+    ),
+    TSUKINOKI_TIROL(
+        Group774Inc.ANIMARE,
+        "月野木ちろる",
+        "UCqskJ0nmw-_eweWfsKvbrzQ",
+        R.drawable.image_tsukinoki_tirol
+    ),
+    KONAN_MIA(
+        Group774Inc.ANIMARE,
+        "湖南みあ",
+        "UC4PrHgUcAtOoj_LKmUL-uLQ",
+        R.drawable.image_konan_mia
     ),
 
     /** ハニーストラップ */
