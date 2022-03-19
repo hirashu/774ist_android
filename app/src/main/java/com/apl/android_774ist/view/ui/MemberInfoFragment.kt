@@ -83,6 +83,6 @@ class MemberInfoFragment : Fragment() {
         val manager: LinearLayoutManager =
             binding.groupMemberInfoList.layoutManager as LinearLayoutManager
         manager.scrollToPositionWithOffset(pos, 0)
-        //binding.groupMemberInfoList.layoutManager?.scrollToPosition(position - 1)
+
     }
 }
