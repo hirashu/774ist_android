@@ -6,14 +6,14 @@ apply plugin: 'kotlin-kapt'
 
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     defaultConfig {
         applicationId "com.apl.android_774ist"
         minSdkVersion 26
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 30
+        versionCode 2
+        versionName "1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -55,7 +55,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     /** Add_Glide4 */
     implementation 'com.github.bumptech.glide:glide:4.11.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
     /** Add_dagger_hilt */
     implementation 'com.google.dagger:hilt-android:2.29.1-alpha'
     kapt 'com.google.dagger:hilt-android-compiler:2.29.1-alpha'
@@ -68,5 +68,5 @@ dependencies {
     //Retrofit2 and okHttp(Http通信周りのライブラリ)
     implementation 'com.squareup.retrofit2:retrofit:2.6.3'
     implementation  'com.squareup.retrofit2:converter-gson:2.3.0'
-    implementation  'com.squareup.okhttp3:logging-interceptor:3.14.4'
+    implementation  'com.squareup.okhttp3:logging-interceptor:3.14.9'
 }
