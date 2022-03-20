@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.apl.android_774ist.const.Group774Inc
 import com.apl.android_774ist.databinding.FragmentHomeBinding
+import com.apl.android_774ist.util.DateUnit
 import com.apl.android_774ist.view.adapter.RecyclerScheduleAdapter
 import com.apl.android_774ist.viewmodel.HomeViewModel
 
@@ -75,7 +77,24 @@ class HomeFragment : Fragment() {
                 binding.loadError.visibility = View.GONE
                 binding.lvSchedule.visibility = View.VISIBLE
                 scheduleAdapter.setScheduleList(HomeViewModel.setVisibleTime(it))
+                // 本日の配信に移動させる
+                val toDayPosition = it.indexOfFirst { schedule ->
+                    DateUnit().formMMddDate(schedule.scheduledStartTime) == DateUnit().formMMddDate(
+                        DateUnit().today()
+                    )
+                }
+                movePosition(toDayPosition)
             }
         }
+    }
+
+    private fun movePosition(pos: Int) {
+        if (pos < 0) {
+            return
+        }
+        val manager: LinearLayoutManager =
+            binding.lvSchedule.layoutManager as LinearLayoutManager
+        manager.scrollToPositionWithOffset(pos, 0)
+
     }
 }
