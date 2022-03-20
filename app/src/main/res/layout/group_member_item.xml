@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="groupMemberInfo"
+            type="com.apl.android_774ist.service.model.GroupMemberInfo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/group_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingEnd="0dp"
+            android:paddingVertical="5dp"
+            android:textSize="20sp"
+            android:background="@drawable/border_black"
+            android:text="@{groupMemberInfo.groupName}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="あにまーれ" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/member_info_item_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/bottom_navigation_view_height"
+            android:padding="1dp"
+            android:verticalSpacing="20dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/group_name"
+            app:spanCount="2"
+            tools:itemCount="6"
+            tools:listitem="@layout/member_info_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

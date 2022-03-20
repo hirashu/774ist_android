@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.apl.android_774ist.view.ui.NotificationsFragment"
+        android:name="com.apl.android_774ist.view.ui.MemberInfoFragment"
         android:label="@string/title_memberInfo"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_group_member_info" />
 </navigation>

@@ -5,8 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.apl.android_774ist.const.Group774Inc
 import com.apl.android_774ist.databinding.FragmentHomeBinding
 import com.apl.android_774ist.view.adapter.RecyclerScheduleAdapter
@@ -25,30 +24,35 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        homeViewModel =
-            ViewModelProviders.of(this)[HomeViewModel::class.java]
+        homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         scheduleAdapter = RecyclerScheduleAdapter(this.context)
         binding.lvSchedule.adapter = scheduleAdapter
 
-        binding.btAll774inc.setOnClickListener {
-            scheduleAdapter.setScheduleList(homeViewModel.groupScheduleList(Group774Inc.ALL))
-        }
+        binding.groupTab.apply {
+            all774inc.setOnClickListener {
+                scheduleAdapter.setScheduleList(homeViewModel.groupScheduleList(Group774Inc.ALL))
+            }
 
-        binding.btAniMare.setOnClickListener {
-            scheduleAdapter.setScheduleList(homeViewModel.groupScheduleList(Group774Inc.ANIMARE))
-        }
+            animare.setOnClickListener {
+                scheduleAdapter.setScheduleList(homeViewModel.groupScheduleList(Group774Inc.ANIMARE))
+            }
 
-        binding.btHoneyStrap.setOnClickListener {
-            scheduleAdapter.setScheduleList(homeViewModel.groupScheduleList(Group774Inc.HONEY_STRAP))
-        }
+            honeyStrap.setOnClickListener {
+                scheduleAdapter.setScheduleList(homeViewModel.groupScheduleList(Group774Inc.HONEY_STRAP))
+            }
 
-        binding.btSugarLyric.setOnClickListener {
-            scheduleAdapter.setScheduleList(homeViewModel.groupScheduleList(Group774Inc.SUGAR_LYRIC))
-        }
+            sugarLyric.setOnClickListener {
+                scheduleAdapter.setScheduleList(homeViewModel.groupScheduleList(Group774Inc.SUGAR_LYRIC))
+            }
 
-        binding.btVApArt.setOnClickListener {
-            scheduleAdapter.setScheduleList(homeViewModel.groupScheduleList(Group774Inc.V_APA))
+            vApArt.setOnClickListener {
+                scheduleAdapter.setScheduleList(homeViewModel.groupScheduleList(Group774Inc.V_APA))
+            }
+
+            hiyocro.setOnClickListener {
+                scheduleAdapter.setScheduleList(homeViewModel.groupScheduleList(Group774Inc.HIYOCRO))
+            }
         }
 
         return binding.root
@@ -56,15 +60,22 @@ class HomeFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        //todo ViewModelの設定を行うまたデータ取得を行う
+        binding.progressbar.visibility = View.VISIBLE
         obtainViewModel(homeViewModel)
     }
 
     private fun obtainViewModel(viewModel: HomeViewModel) {
-        viewModel.scheduleListLiveData.observe(viewLifecycleOwner, Observer { it ->
-            scheduleAdapter.setScheduleList(HomeViewModel.setVisibleTime(it))
-        })
+        viewModel.scheduleListLiveData.observe(viewLifecycleOwner) {
+            if (it == null) {
+                binding.progressbar.visibility = View.GONE
+                binding.loadError.visibility = View.VISIBLE
+                // todo APIの情報取得失敗の表示の追加
+            } else {
+                binding.progressbar.visibility = View.GONE
+                binding.loadError.visibility = View.GONE
+                binding.lvSchedule.visibility = View.VISIBLE
+                scheduleAdapter.setScheduleList(HomeViewModel.setVisibleTime(it))
+            }
+        }
     }
-
-
 }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="memberInfo"
+            type="com.apl.android_774ist.service.model.GroupMemberInfo.MemberInfo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/talent_image"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcImageId="@{memberInfo.imageId}"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/talent_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="5dp"
+            android:gravity="center"
+            android:text="@{memberInfo.name}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/talent_image"
+            android:textSize="18sp"
+            tools:text="因幡はねる"/>
+
+        <ImageView
+            android:id="@+id/twitter_image"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_twitter"
+            android:padding="3dp"
+            app:layout_constraintStart_toStartOf="@id/talent_image"
+            app:layout_constraintEnd_toStartOf="@id/youtube_image"
+            app:layout_constraintTop_toBottomOf="@id/talent_name"/>
+
+        <ImageView
+            android:id="@+id/youtube_image"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_youtube"
+            app:layout_constraintStart_toEndOf="@id/twitter_image"
+            app:layout_constraintEnd_toEndOf="@id/talent_image"
+            app:layout_constraintTop_toBottomOf="@id/talent_name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

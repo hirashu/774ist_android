@@ -11,6 +11,10 @@ import java.util.concurrent.TimeUnit
 
 
 class Client {
+
+    companion object{
+        private const val API_URL = "https://hirashu.net/api_774inc-Schedule/"
+    }
     //Clientを作成
     private val httpBuilder: OkHttpClient.Builder get() {
         //HttpClientのBuilderを作成する
@@ -36,10 +40,8 @@ class Client {
         return  httpClient
     }
 
-    // todo GSONの設定が必要らしい
     private val gson = GsonBuilder()
-        .setFieldNamingPolicy(FieldNamingPolicy.IDENTITY)
-        .create()
+        .setFieldNamingPolicy(FieldNamingPolicy.IDENTITY).create()
 
     //繋ぎこみ
     fun createService(uri: String): ApiService {
@@ -49,8 +51,16 @@ class Client {
             .addConverterFactory(GsonConverterFactory.create(gson))//Gsonの使用
             .client(client)//カスタマイズしたokhttpのクライアントの設定
             .build()
-        //Interfaceから実装を取得
-
         return retrofit.create(ApiService::class.java)
+    }
+
+    fun createJsonService(): JsonService {
+        val client = httpBuilder.build()
+        val retrofit = Retrofit.Builder()
+            .baseUrl(API_URL)
+            .addConverterFactory(GsonConverterFactory.create(gson))//Gsonの使用
+            .client(client)//カスタマイズしたokhttpのクライアントの設定
+            .build()
+        return retrofit.create(JsonService::class.java)
     }
 }
