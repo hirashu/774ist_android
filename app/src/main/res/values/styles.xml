@@ -7,4 +7,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <integer name="verticalColumn">2</integer>
+    <integer name="horizontalColumn">2</integer>
+
 </resources>

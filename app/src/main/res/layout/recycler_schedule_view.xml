@@ -7,7 +7,7 @@
     <data>
         <variable
             name="scheduleInfo"
-            type="com.example.android_774ist.service.model.Schedule" />
+            type="com.apl.android_774ist.service.model.Schedule" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,22 +19,37 @@
         android:id="@+id/topLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         tools:ignore="MissingConstraints">
 
         <TextView
+            android:id="@+id/tvScheduleDay"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/lightSkyBlue"
+            android:textStyle="bold"
+            app:formMMddDate="@{scheduleInfo.scheduledStartTime}"
+            android:textSize="18sp"
+            app:visibility="@{scheduleInfo.visibleDay}"
+            tools:text="@string/schedule_day" />
+
+        <TextView
             android:id="@+id/tvScheduleTime"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_marginStart="3dp"
             android:layout_weight="1"
             android:textStyle="bold"
+            android:textSize="16sp"
             app:formHmmDate="@{scheduleInfo.scheduledStartTime}"
+            app:visibility="@{scheduleInfo.visibleTime}"
             tools:text="@string/schedule_time" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/scheduleLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_gray"
@@ -74,6 +89,7 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="5dp"
                     android:textSize="15sp"
+                    android:textColor="#ff000000"
                     android:text="@{scheduleInfo.distributor}"
                     tools:text="@string/distributor" />
 
@@ -94,8 +110,9 @@
                 android:layout_height="wrap_content"
                 android:lines="3"
                 android:textSize="12sp"
+                android:layout_marginStart="5dp"
                 android:layout_marginEnd="8dp"
-                android:text="@{scheduleInfo.description}"
+                android:text="@{scheduleInfo.title}"
                 tools:text="@string/broadcast_title" />
 
         </LinearLayout>
